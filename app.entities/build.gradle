@@ -1,0 +1,5 @@
+description = 'Entities'
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:${project.ext.springBootVersion}")
+}

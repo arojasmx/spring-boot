@@ -1,0 +1,51 @@
+
+allprojects {
+    group = "com.novutek"
+    version '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    project.ext {
+        springBootVersion = '1.4.3.RELEASE'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}
+
+project(':app.webapi') {
+    dependencies {
+        compile project(':app.entities'), project(':app.services'), project(':app.dto')
+    }
+}
+
+project(':app.services') {
+    dependencies {
+        compile project(':app.entities'), project(':app.data'), project(':app.dto')
+    }
+}
+
+project(':app.data') {
+    dependencies {
+        compile project(':app.entities'), project(':app.dto')
+    }
+}
+
+project(':app.entities') {
+    dependencies {
+    }
+}

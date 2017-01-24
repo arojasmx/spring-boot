@@ -1,0 +1,7 @@
+rootProject.name = 'app'
+include 'app.entities'
+include 'app.dto'
+include 'app.services'
+include 'app.data'
+include 'app.webapi'
+
